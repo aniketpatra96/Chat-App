@@ -7,7 +7,7 @@ const Loader = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Simulate 2 seconds of loading time
+    }, 3000); // Simulate 2 seconds of loading time
 
     return () => clearTimeout(timeout);
   }, []);

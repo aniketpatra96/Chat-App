@@ -2,7 +2,7 @@
 const Groups = () => {
   return (
     <div>
-      
+      gropus
     </div>
   )
 }
