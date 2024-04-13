@@ -5,6 +5,7 @@ import {
   Typography,
   IconButton,
   Tooltip,
+  Backdrop,
 } from "@mui/material";
 import { orange } from "../../constants/color";
 import { useNavigate } from "react-router-dom";
@@ -17,9 +18,9 @@ import {
   Logout as LogoutIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material";
-import Loader from "../styles/Loader";
 const SearchDialog = lazy(() => import("../specific/Search"));
-
+const NotificationDialog = lazy(() => import("../specific/Notifications"));
+const NewGroupDialog = lazy(() => import("../specific/NewGroup"));
 const Header = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
@@ -108,8 +109,18 @@ const Header = () => {
         </AppBar>
       </Box>
       {isSearch && (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Backdrop open />}>
           <SearchDialog />
+        </Suspense>
+      )}
+      {isNotification && (
+        <Suspense fallback={<Backdrop open />}>
+          <NotificationDialog />
+        </Suspense>
+      )}
+      {isNewGroup && (
+        <Suspense fallback={<Backdrop open />}>
+          <NewGroupDialog />
         </Suspense>
       )}
     </>
