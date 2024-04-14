@@ -8,7 +8,7 @@ import {
   Backdrop,
 } from "@mui/material";
 import { orange } from "../../constants/color";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Suspense, useState, lazy } from "react";
 import {
   Add as AddIcon,
@@ -62,7 +62,19 @@ const Header = () => {
                 display: { xs: "none", sm: "block" },
               }}
             >
-              ProDev Chat App
+              <Link
+                to={"/"}
+                style={{
+                  textDecoration: "none",
+                  fontFamily: "Pacifico , cursive",
+                  fontWeight: 400,
+                  fontSize:"30px",
+                  fontStyle: "normal",
+                  color: "white",
+                }}
+              >
+                ProDev Chat App
+              </Link>
             </Typography>
             <Box
               sx={{
