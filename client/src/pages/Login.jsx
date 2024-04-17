@@ -13,6 +13,7 @@ import { useState } from "react";
 import { VisuallyHiddenInput } from "../components/styles/styledComponents";
 import { useInputValidation, useStrongPassword, useFileHandler } from "6pp";
 import { usernameValidator } from "../utils/validators";
+import { bgGradient } from "../constants/color";
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const toggleLogin = () => setIsLogin((prev) => !prev);
@@ -30,8 +31,7 @@ const Login = () => {
   return (
     <div
       style={{
-        backgroundImage:
-          "linear-gradient(rgba(200,200,200,0.5),rgba(120,110,220,0.5))",
+        backgroundImage: bgGradient,
       }}
     >
       <Container

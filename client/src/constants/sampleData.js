@@ -47,9 +47,7 @@ export const sampleNotifications = [
 
 export const sampleMessage = [
   {
-    attachments: [
-      
-    ],
+    attachments: [],
     content: "sample message",
     _id: "kgyudyedtyfyjvbulk",
     sender: {

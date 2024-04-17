@@ -10,14 +10,14 @@ const Profile = () => {
     <Stack spacing={"2rem"} direction={"column"} alignItems={"center"}>
       <Avatar
         sx={{
-          width: 200,
-          height: 200,
+          width: { xs: 200, md: 100 },
+          height: { xs: 200, md: 100 },
           objectFit: "contain",
           marginBottom: "1rem",
           border: "5px solid white",
         }}
       />
-      <ProfileCard heading={"Bio"} text={"ghfjhyf jkbhk"} />
+      <ProfileCard heading={"Bio"} text={"I love books"} />
       <ProfileCard
         heading={"Username"}
         text={"aniketpatra96"}
