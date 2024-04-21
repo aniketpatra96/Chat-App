@@ -2,17 +2,12 @@ import {
   Container,
   Paper,
   Typography,
-  TextField,
   Button,
-  Stack,
-  Avatar,
   IconButton,
 } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { useState } from "react";
-import { VisuallyHiddenInput } from "../../components/styles/styledComponents";
 import { useInputValidation, useStrongPassword, useFileHandler } from "6pp";
-import { usernameValidator } from "../../utils/validators";
 import { bgGradient } from "../../constants/color";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
