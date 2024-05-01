@@ -8,12 +8,10 @@ import {
   Person as PersonIcon,
 } from "@mui/icons-material";
 import moment from "moment";
-import {
-  CurveButton,
-  SearchField,
-} from "../../components/styles/styledComponents";
+import { CurveButton, SearchField } from "../../components/styles/styledComponents";
 import { matBlack } from "../../constants/color";
 import { DoughnutChart, LineChart } from "../../components/specific/Charts";
+
 const Dashboard = () => {
   const Appbar = (
     <Paper
@@ -43,6 +41,7 @@ const Dashboard = () => {
       </Stack>
     </Paper>
   );
+
   const Widgets = (
     <Stack
       direction={{ xs: "column", sm: "row" }}
@@ -56,6 +55,7 @@ const Dashboard = () => {
       <Widget title={"Messages"} value={45} Icon={<MessageIcon />} />
     </Stack>
   );
+
   return (
     <AdminLayout>
       <Container component={"main"}>
@@ -97,8 +97,7 @@ const Dashboard = () => {
               justifyContent: "center",
               alignItems: "center",
               width: { xs: "100%", sm: "50%" },
-              position: "relative",
-              width: "100%",
+              position: "relative", // Ensure this position property is intended
               maxWidth: "25rem",
             }}
           >
@@ -107,7 +106,7 @@ const Dashboard = () => {
               value={[23, 66]}
             />
             <Stack
-              position={"absolute"}
+              position={"absolute"} // Ensure this position property is intended
               direction={"row"}
               justifyContent={"center"}
               alignItems={"center"}

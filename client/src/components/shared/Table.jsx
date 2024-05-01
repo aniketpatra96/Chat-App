@@ -1,9 +1,15 @@
-import { Container, Paper, Typography } from "@mui/material";
+import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import { Container, Paper, Typography } from "@mui/material";
 import { matBlack } from "../../constants/color";
+
 const Table = ({ rows, columns, heading, rowHeight = 52 }) => {
   return (
-    <Container sx={{ height: "100vh" }}>
+    <Container
+      sx={{
+        height: "100vh",
+      }}
+    >
       <Paper
         elevation={3}
         sx={{
