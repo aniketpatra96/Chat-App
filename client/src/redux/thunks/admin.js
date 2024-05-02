@@ -10,7 +10,7 @@ const adminLogin = createAsyncThunk("admin/login", async (secretKey) => {
         "Content-Type": "application/json",
       },
     };
-
+    console.log(secretKey,server);
     const { data } = await axios.post(
       `${server}/api/v1/admin/verify`,
       { secretKey },

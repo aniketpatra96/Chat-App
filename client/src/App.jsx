@@ -49,7 +49,6 @@ const App = () => {
             }
           >
             <Route path="/" element={<>
-              <h1>kjgk</h1>
               <Home />
             </>} />
             <Route path="/chat/:chatId" element={<Chat />} />

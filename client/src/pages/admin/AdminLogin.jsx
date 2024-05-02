@@ -1,37 +1,34 @@
+import { useInputValidation } from "6pp";
 import {
+  Button,
   Container,
   Paper,
-  Typography,
-  Button,
-  IconButton,
+  TextField,
+  Typography
 } from "@mui/material";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import { useState } from "react";
-import { useInputValidation, useStrongPassword, useFileHandler } from "6pp";
-import { bgGradient } from "../../constants/color";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-
-const isAdmin = true;
+import { bgGradient } from "../../constants/color";
+import { adminLogin, getAdmin } from "../../redux/thunks/admin";
 
 const AdminLogin = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const { isAdmin } = useSelector((state) => state.auth);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  const dispatch = useDispatch();
 
   const secretKey = useInputValidation("");
 
-  if(isAdmin) return <Navigate to={"/admin/dashboard"}/>
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(adminLogin(secretKey.value));
+  };
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, [dispatch]);
+
+  if (isAdmin) return <Navigate to="/admin/dashboard" />;
 
   return (
     <div
@@ -66,32 +63,21 @@ const AdminLogin = () => {
             }}
             onSubmit={submitHandler}
           >
-            <FormControl sx={{ m: 1, width: "97%" }} variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={showPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
-                value={secretKey.value}
-                onChange={secretKey.changeHandler}
-              />
-            </FormControl>
+            <TextField
+              required
+              fullWidth
+              label="Secret Key"
+              type="password"
+              margin="normal"
+              variant="outlined"
+              value={secretKey.value}
+              onChange={secretKey.changeHandler}
+            />
+
             <Button
-              sx={{ marginTop: "1rem" }}
+              sx={{
+                marginTop: "1rem",
+              }}
               variant="contained"
               color="primary"
               type="submit"

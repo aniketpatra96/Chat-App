@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Link } from "../styles/StyledComponents";
+import { Link } from "../styles/styledComponents";
 import { Box, Stack, Typography } from "@mui/material";
 import AvatarCard from "./AvatarCard";
 import { motion } from "framer-motion";
