@@ -1,25 +1,31 @@
-import { Line, Doughnut } from "react-chartjs-2";
 import {
+  ArcElement,
   CategoryScale,
   Chart as ChartJS,
-  Tooltip,
   Filler,
+  Legend,
+  LineElement,
   LinearScale,
   PointElement,
-  LineElement,
-  ArcElement,
-  Legend,
+  Tooltip,
 } from "chart.js";
-import { orange, orangeLight, purple, purpleLight, seaGreen } from "../../constants/color";
+import React from "react";
+import { Doughnut, Line } from "react-chartjs-2";
+import {
+  orange,
+  orangeLight,
+  purple,
+  purpleLight,
+} from "../../constants/color";
 import { getLast7Days } from "../../lib/features";
 
 ChartJS.register(
-  CategoryScale,
   Tooltip,
-  Filler,
+  CategoryScale,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
+  Filler,
   ArcElement,
   Legend
 );
@@ -36,36 +42,36 @@ const lineChartOptions = {
       display: false,
     },
   },
+
   scales: {
     x: {
       grid: {
         display: false,
       },
-      //display: false,
     },
     y: {
       beginAtZero: true,
       grid: {
         display: false,
       },
-      //display: false,
     },
   },
 };
 
-const LineChart = ({ value = [1, 2, 34, 6, 8, 10, 12] }) => {
+const LineChart = ({ value = [] }) => {
   const data = {
     labels,
     datasets: [
       {
         data: value,
-        label: "Revenue",
-        fill: false,
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        label: "Messages",
+        fill: true,
+        backgroundColor: purpleLight,
+        borderColor: purple,
       },
     ],
   };
+
   return <Line data={data} options={lineChartOptions} />;
 };
 
@@ -73,9 +79,6 @@ const doughnutChartOptions = {
   responsive: true,
   plugins: {
     legend: {
-      display: false,
-    },
-    title: {
       display: false,
     },
   },
@@ -88,7 +91,6 @@ const DoughnutChart = ({ value = [], labels = [] }) => {
     datasets: [
       {
         data: value,
-        label: "Total Chats Vs Group Chats",
         backgroundColor: [purpleLight, orangeLight],
         hoverBackgroundColor: [purple, orange],
         borderColor: [purple, orange],
@@ -98,11 +100,11 @@ const DoughnutChart = ({ value = [], labels = [] }) => {
   };
   return (
     <Doughnut
-      style={{ zIndex: 1 }}
+      style={{ zIndex: 10 }}
       data={data}
       options={doughnutChartOptions}
     />
   );
 };
 
-export { LineChart, DoughnutChart };
+export { DoughnutChart, LineChart };

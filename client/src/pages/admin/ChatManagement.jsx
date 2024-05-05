@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import AdminLayout from "../../components/Layouts/AdminLayout";
-import Table from "../../components/shared/Table";
-import { Avatar, Stack } from "@mui/material";
-import { dashboardData } from "../../constants/sampleData";
-import { transformImage } from "../../lib/features";
+import { useFetchData } from "6pp";
+import { Avatar, Skeleton, Stack } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import AdminLayout from "../../components/layout/AdminLayout";
 import AvatarCard from "../../components/shared/AvatarCard";
+import Table from "../../components/shared/Table";
+import { server } from "../../constants/config";
+import { useErrors } from "../../hooks/hook";
+import { transformImage } from "../../lib/features";
+
 const columns = [
   {
     field: "id",
@@ -17,15 +20,21 @@ const columns = [
     headerName: "Avatar",
     headerClassName: "table-header",
     width: 150,
-    renderCell: (params) => (
-      <AvatarCard avatar={params.row.avatar} sx={{ marginTop: "4px" }} />
-    ),
+    renderCell: (params) => <AvatarCard avatar={params.row.avatar} />,
   },
+
   {
     field: "name",
     headerName: "Name",
     headerClassName: "table-header",
     width: 300,
+  },
+
+  {
+    field: "groupChat",
+    headerName: "Group",
+    headerClassName: "table-header",
+    width: 100,
   },
   {
     field: "totalMembers",
@@ -54,7 +63,7 @@ const columns = [
     headerClassName: "table-header",
     width: 250,
     renderCell: (params) => (
-      <Stack direction={"row"} alignItems={"center"} spacing={"1rem"}>
+      <Stack direction="row" alignItems="center" spacing={"1rem"}>
         <Avatar alt={params.row.creator.name} src={params.row.creator.avatar} />
         <span>{params.row.creator.name}</span>
       </Stack>
@@ -63,24 +72,44 @@ const columns = [
 ];
 
 const ChatManagement = () => {
+  const { loading, data, error } = useFetchData(
+    `${server}/api/v1/admin/chats`,
+    "dashboard-chats"
+  );
+
+  useErrors([
+    {
+      isError: error,
+      error: error,
+    },
+  ]);
+
   const [rows, setRows] = useState([]);
+
   useEffect(() => {
-    setRows(
-      dashboardData.chats.map((i) => ({
-        ...i,
-        id: i._id,
-        avatar: i.avatar.map((i) => transformImage(i, 50)),
-        members: i.members.map((i) => transformImage(i.avatar, 50)),
-        creator: {
-          name: i.creator.name,
-          avatar: transformImage(i.creator.avatar, 50),
-        },
-      }))
-    );
-  }, []);
+    if (data) {
+      setRows(
+        data.chats.map((i) => ({
+          ...i,
+          id: i._id,
+          avatar: i.avatar.map((i) => transformImage(i, 50)),
+          members: i.members.map((i) => transformImage(i.avatar, 50)),
+          creator: {
+            name: i.creator.name,
+            avatar: transformImage(i.creator.avatar, 50),
+          },
+        }))
+      );
+    }
+  }, [data]);
+
   return (
     <AdminLayout>
-      <Table heading={"All Chats"} columns={columns} rows={rows} />
+      {loading ? (
+        <Skeleton height={"100vh"} />
+      ) : (
+        <Table heading={"All Chats"} columns={columns} rows={rows} />
+      )}
     </AdminLayout>
   );
 };
