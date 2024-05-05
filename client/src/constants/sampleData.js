@@ -1,6 +1,4 @@
-import { ChatSharp } from "@mui/icons-material";
-
-export const sampleChats = [
+export const samepleChats = [
   {
     avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
     name: "John Doe",
@@ -8,9 +6,10 @@ export const sampleChats = [
     groupChat: false,
     members: ["1", "2"],
   },
+
   {
     avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
-    name: "Smith Jane",
+    name: "John Boi",
     _id: "2",
     groupChat: true,
     members: ["1", "2"],
@@ -19,13 +18,13 @@ export const sampleChats = [
 
 export const sampleUsers = [
   {
-    avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+    avatar: "https://www.w3schools.com/howto/img_avatar.png",
     name: "John Doe",
     _id: "1",
   },
   {
-    avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
-    name: "Smith Jane",
+    avatar: "https://www.w3schools.com/howto/img_avatar.png",
+    name: "John Boi",
     _id: "2",
   },
 ];
@@ -33,15 +32,15 @@ export const sampleUsers = [
 export const sampleNotifications = [
   {
     sender: {
-      avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+      avatar: "https://www.w3schools.com/howto/img_avatar.png",
       name: "John Doe",
     },
     _id: "1",
   },
   {
     sender: {
-      avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
-      name: "Smith Jane",
+      avatar: "https://www.w3schools.com/howto/img_avatar.png",
+      name: "John Boi",
     },
     _id: "2",
   },
@@ -50,8 +49,8 @@ export const sampleNotifications = [
 export const sampleMessage = [
   {
     attachments: [],
-    content: "sample message",
-    _id: "kgyudyedtyfyjvbulk",
+    content: "L*uda ka Message hai",
+    _id: "sfnsdjkfsdnfkjsbnd",
     sender: {
       _id: "user._id",
       name: "Chaman ",
@@ -59,18 +58,19 @@ export const sampleMessage = [
     chat: "chatId",
     createdAt: "2024-02-12T10:41:30.630Z",
   },
+
   {
     attachments: [
       {
-        public_id: "asdasd 2",
+        public_id: "asdsad 2",
         url: "https://www.w3schools.com/howto/img_avatar.png",
       },
     ],
     content: "",
-    _id: "kgyudyedtyfyjvbulkhjg",
+    _id: "sfnsdjkfsdnfkdddjsbnd",
     sender: {
-      _id: "hjgjg",
-      name: "Chaman 2",
+      _id: "sdfsdfsdf",
+      name: "Chaman  2",
     },
     chat: "chatId",
     createdAt: "2024-02-12T10:41:30.630Z",
@@ -80,27 +80,26 @@ export const sampleMessage = [
 export const dashboardData = {
   users: [
     {
-      name: "Aniket Patra",
-      avatar:
-        "https://i.pinimg.com/originals/e5/7b/8c/e57b8cf9a9ffeeeddf5adacfdcebbfa3.jpg",
+      name: "John Doe",
+      avatar: "https://www.w3schools.com/howto/img_avatar.png",
       _id: "1",
-      username: "aniket26",
+      username: "john_doe",
       friends: 20,
       groups: 5,
     },
     {
-      name: "Jonathan Behera",
-      avatar:
-        "https://i.pinimg.com/originals/e5/7b/8c/e57b8cf9a9ffeeeddf5adacfdcebbfa3.jpg",
+      name: "John Boi",
+      avatar: "https://www.w3schools.com/howto/img_avatar.png",
       _id: "2",
-      username: "jonathon",
-      friends: 50,
-      groups: 12,
+      username: "john_boi",
+      friends: 20,
+      groups: 25,
     },
   ],
+
   chats: [
     {
-      name: "MERN GROUP",
+      name: "LabadBass Group",
       avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
       _id: "1",
       groupChat: false,
@@ -111,57 +110,58 @@ export const dashboardData = {
       totalMembers: 2,
       totalMessages: 20,
       creator: {
-        name: "Jonathon Panda",
+        name: "John Doe",
         avatar: "https://www.w3schools.com/howto/img_avatar.png",
       },
     },
     {
-      name: "Labdo Group",
+      name: "L*Da Luston Group",
       avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
       _id: "2",
-      groupChat: false,
+      groupChat: true,
       members: [
-        { _id: "3", avatar: "https://www.w3schools.com/howto/img_avatar.png" },
-        { _id: "4", avatar: "https://www.w3schools.com/howto/img_avatar.png" },
         { _id: "1", avatar: "https://www.w3schools.com/howto/img_avatar.png" },
-        { _id: "5", avatar: "https://www.w3schools.com/howto/img_avatar.png" },
+        { _id: "2", avatar: "https://www.w3schools.com/howto/img_avatar.png" },
       ],
-      totalMembers: 3,
-      totalMessages: 35,
+      totalMembers: 2,
+      totalMessages: 20,
       creator: {
-        name: "Hrusikesh dutta",
+        name: "John Boi",
         avatar: "https://www.w3schools.com/howto/img_avatar.png",
       },
     },
   ],
+
   messages: [
     {
-      attachments: [{
-        id:"1",
-        name:'attachment',
-        url:'https://www.w3schools.com/howto/img_avatar.png'
-      }],
-      content: "Hello from all how are all??",
-      _id: "jkhkhkucajkhbkcj",
+      attachments: [],
+      content: "L*uda ka Message hai",
+      _id: "sfnsdjkfsdnfkjsbnd",
       sender: {
         avatar: "https://www.w3schools.com/howto/img_avatar.png",
-        name: "Chaman",
+        name: "Chaman ",
       },
       chat: "chatId",
       groupChat: false,
-      createdAt: "2024-04-23T10:41:30.630Z",
+      createdAt: "2024-02-12T10:41:30.630Z",
     },
+
     {
-      attachments: [],
-      content: "Hey pickup my phone?",
-      _id: "jkhers",
+      attachments: [
+        {
+          public_id: "asdsad 2",
+          url: "https://www.w3schools.com/howto/img_avatar.png",
+        },
+      ],
+      content: "",
+      _id: "sfnsdjkfsdnfkdddjsbnd",
       sender: {
         avatar: "https://www.w3schools.com/howto/img_avatar.png",
-        name: "Aditya",
+        name: "Chaman  2",
       },
       chat: "chatId",
       groupChat: true,
-      createdAt: "2024-04-23T10:41:30.630Z",
+      createdAt: "2024-02-12T10:41:30.630Z",
     },
   ],
 };
